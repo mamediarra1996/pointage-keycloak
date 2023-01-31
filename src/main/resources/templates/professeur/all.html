@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<style>
+
+    .table {
+
+        width: 10%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    .table th {
+        background-color: darkgreen }
+
+    .table thead th {
+        border: 0px;
+        padding: 30px;
+        font-size: 18px;
+        background-color: darkgreen
+    }
+
+    .table tbody td {
+
+        border: none;
+        padding: 20px;
+        font-size: 15px;
+    }
+
+</style>
+<body>
+<div align="center">
+<table border="1">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Etat</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prof:${professeur}">
+        <td th:text="${prof.id}"></td>
+        <td th:text="${prof.nom}"></td>§
+        <td th:text="${prof.prenom}"></td>
+        <td th:text="${prof.email}"></td>
+        <td th:text="${prof.etat}"></td>%¨¨
+        <td>
+            <a href="#" th:href="@{/edit/{id} (id=${prof.id})}">Edit</a>
+            <a href="#" th:href="@{/supp/{id} (id=${prof.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/professeur/add}">Add Professeur</a>
+</div>
+</body>
+</html>

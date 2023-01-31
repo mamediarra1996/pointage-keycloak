@@ -1,0 +1,58 @@
+
+server:
+  port: 8087
+
+spring:
+  datasource:
+    password:
+    url: jdbc:mysql://localhost:3306/pointage_db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  application:
+    name: pointage
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    user:
+      name: diarra
+      password: passer123
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,wavefront
+  info:
+    env:
+      enabled: true
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+info:
+  application:
+    name: pointage
+    version: '@project.version@'
+
+
+      #logging:
+      #level:
+      #org:
+      #springframework:
+    #web: DEBUG
+    #file:
+    #name: /Users/macbookair/Documents/IJProjects/2022/Spring/2022/coaching/bank-credit-master/logs/mylog.logeycloak.realm=ecom-realm
+
+keycloak:
+  realm: pointage-realm #nom du realm
+  auth-server-url: http://localhost:8080/
+  resource: pointage-app #nom du client
+  public-client: true
+  principal-attribute: name
+
+
+
+
