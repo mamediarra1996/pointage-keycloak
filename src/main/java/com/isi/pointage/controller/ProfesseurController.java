@@ -23,8 +23,9 @@ public class ProfesseurController {
         return "index";
     }
 
-    @PostAuthorize("hasAuthority('ROLE_USER')")
+
     @GetMapping(value = "professeur/add")
+    @PostAuthorize("hasAuthority('USER')")
     public String add(Model model) {
         Professeur professeur = new Professeur();
         model.addAttribute("professeur",new  Professeur());
@@ -37,8 +38,9 @@ public class ProfesseurController {
         prof.save(professeur);
         return "professeur/add";
     }
-    @PostAuthorize("hasAuthority('ROLE_ADMIN')")
+
     @GetMapping(value = "/professeur/list")
+    @PostAuthorize("hasAuthority('ADMIN')")
     public String getAll(Model model) {
         model.addAttribute("professeur", prof .findAll());
         return "professeur/all";

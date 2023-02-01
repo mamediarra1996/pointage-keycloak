@@ -47,7 +47,7 @@ info:
     #name: /Users/macbookair/Documents/IJProjects/2022/Spring/2022/coaching/bank-credit-master/logs/mylog.logeycloak.realm=ecom-realm
 
 keycloak:
-  realm: pointage-realm #nom du realm
+  realm: pointage #nom du realm
   auth-server-url: http://localhost:8080/
   resource: pointage-app #nom du client
   public-client: true
